@@ -1,0 +1,2 @@
+class EmailContent < ApplicationRecord
+end

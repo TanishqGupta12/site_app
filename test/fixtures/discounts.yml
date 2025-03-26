@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  code: MyString
+  is_active: false
+  is_percentage: false
+  discount_amount: MyString
+  min_discount: 1.5
+  max_discount: 1.5
+  valid_from: 2025-03-26 05:52:32
+  valid_still: 2025-03-26 05:52:32
+
+two:
+  event: two
+  code: MyString
+  is_active: false
+  is_percentage: false
+  discount_amount: MyString
+  min_discount: 1.5
+  max_discount: 1.5
+  valid_from: 2025-03-26 05:52:32
+  valid_still: 2025-03-26 05:52:32

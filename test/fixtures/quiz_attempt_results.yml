@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  quiz_topic: one
+  question: MyText
+  answer: MyText
+  is_right: 1.5
+  is_wrong: 1.5
+
+two:
+  user: two
+  quiz_topic: two
+  question: MyText
+  answer: MyText
+  is_right: 1.5
+  is_wrong: 1.5

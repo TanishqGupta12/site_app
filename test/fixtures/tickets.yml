@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  event: one
+  price: 1.5
+  is_active: false
+  currency: MyString
+  min_user_limit: 1.5
+  is_group: false
+  is_donation: false
+  valid_from: 2025-03-26 05:52:50
+  valid_still: 2025-03-26 05:52:50
+  course: one
+
+two:
+  title: MyString
+  event: two
+  price: 1.5
+  is_active: false
+  currency: MyString
+  min_user_limit: 1.5
+  is_group: false
+  is_donation: false
+  valid_from: 2025-03-26 05:52:50
+  valid_still: 2025-03-26 05:52:50
+  course: two
