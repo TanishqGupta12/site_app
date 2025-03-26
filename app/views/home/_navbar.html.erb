@@ -175,7 +175,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="/users/sign_in">login</a>
+                        <% if user_signed_in? %>
+                        <%= link_to "Sign out", destroy_user_session_path(), method: :delete, class: "btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" %>
+                        <% else %>
+                        <%= link_to "Sign in", new_user_session_path(), class: "btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" %>
+                        <% end %>
                     </div>
                 </nav>
             </div>
