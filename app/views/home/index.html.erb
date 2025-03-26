@@ -1,1 +1,6 @@
-    <%= render partial: "caraousel" %>
+    <% if @event %>
+        <%= render partial: "caraousel" %>
+    <%= render partial: "category", locals: { categories_data: @categories_data } %>
+    <% else %>
+
+    <% end %>
