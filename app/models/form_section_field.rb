@@ -1,0 +1,2 @@
+class FormSectionField < ApplicationRecord
+end

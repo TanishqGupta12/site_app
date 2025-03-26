@@ -1,4 +1,4 @@
-class CreateCreateEmailContents < ActiveRecord::Migration[7.1]
+class CreateEmailContents < ActiveRecord::Migration[7.1]
   def change
     create_table :email_contents do |t|
 
