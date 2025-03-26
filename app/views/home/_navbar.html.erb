@@ -2,7 +2,7 @@
         <div class="row align-items-center py-4 px-xl-5">
             <div class="col-lg-3">
                 <a href="" class="text-decoration-none">
-                    <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1>
+                    <h1 class="m-0"><span class="text-primary"><%= event.try(:name)[0] %></span><%= event&.name&.slice(1..) %></h1>
                 </a>
             </div>
             <div class="col-lg-3 text-right">
@@ -10,7 +10,7 @@
                     <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
-                        <small><%= event.first.try(:address) %></small>
+                        <small><%= event.try(:address) %></small>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                     <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
-                        <small><%= event.first.try(:email) %></small>
+                        <small><%= event.try(:email) %></small>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     <i class="fa fa-2x fa-phone text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
-                        <small><%= event.first.try(:phone) %></small>
+                        <small><%= event.try(:phone) %></small>
                     </div>
                 </div>
             </div>
