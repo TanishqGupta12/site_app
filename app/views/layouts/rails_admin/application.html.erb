@@ -2,6 +2,7 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <%= render "layouts/rails_admin/head" %>
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.3.0/ckeditor5.css" crossorigin>
   </head>
   <body class="rails_admin">
     <div data-i18n-options="<%= I18n.t("admin.js").to_json %>" id="admin-js"></div>
@@ -23,5 +24,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/44.3.0/ckeditor5.umd.js" crossorigin></script>
+    <%= javascript_include_tag "Ckediter" %> 
   </body>
 </html>

@@ -1,0 +1,2 @@
+module CkeditorUploadsHelper
+end

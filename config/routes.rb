@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  mount Ckeditor::Engine => '/ckeditor'
+  post "/ckeditor/upload", to: "ckeditor_uploads#create"
+  
   # devise_for :users
   devise_for :users, controllers: {
     sessions: 'users/sessions'

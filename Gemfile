@@ -71,3 +71,4 @@ gem 'rails_admin'
 gem "cssbundling-rails"
 gem 'cancancan'
 gem 'devise'
+gem 'ckeditor'
