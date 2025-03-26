@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   # devise_for :users
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  devise_for :users, :controllers => {  :confirmations => "confirmations", :passwords => "passwords" ,registrations: 'registrations', sessions: 'sessions' }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,6 +10,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  match "/:event_id/login", to: "home#login", as: "login", via: [:get, :post]
+  match "/:event_id/sign_up", to: "home#sign_up", as: "sign_up", via: [:get, :post]
   # Defines the root path route ("/")
   # root "posts#index"
 end

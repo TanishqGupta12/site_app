@@ -6,4 +6,12 @@ class HomeController < ApplicationController
     @teacher_data =  User.teachers_for_event(@event.id)
     @course_data =  Course.courses_for_event(@event.id)
   end
+  # event_login GET    /homes/:event_id/login
+  def login
+    
+  end
+
+  def sign_up
+    
+  end
 end

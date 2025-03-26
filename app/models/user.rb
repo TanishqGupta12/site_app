@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  belongs_to :role
+  belongs_to :role , optional: true
 
   scope :teachers_for_event, ->(event_id) { includes(:role).where(current_event_id: event_id, roles: { name: "Teacher" }) }
 
