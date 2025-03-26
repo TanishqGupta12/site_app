@@ -6,18 +6,16 @@ class User < ApplicationRecord
          
   belongs_to :role
 
-  before_create  :check_authentication_token?
+  before_create :check_authentication_token
 
-  def check_authentication_token?
-    if authentication_token.blank?
-      self.authentication_token = generate_token?
-    end
-
+  def check_authentication_token
+    self.authentication_token = generate_unique_token if authentication_token.blank?
   end
-  def generate_token?
+  
+  def generate_unique_token
     loop do
       token = Devise.friendly_token
-      break token unless User.where(authentication_token: token).first
+      break token unless User.exists?(authentication_token: token)
     end
   end
 
