@@ -6,6 +6,8 @@ class User < ApplicationRecord
          
   belongs_to :role
 
+  scope :teachers_for_event, ->(event_id) { includes(:role).where(current_event_id: event_id, roles: { name: "Teacher" }) }
+
   before_create :check_authentication_token
 
   def check_authentication_token

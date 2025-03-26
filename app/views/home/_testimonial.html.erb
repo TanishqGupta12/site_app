@@ -1,0 +1,21 @@
+<div class="container-fluid py-5">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Testimonial</h5>
+      <h1>What Say Our Students</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <% @testimonials.present? && @testimonials.each do |testimonial| %>
+          <div class="text-center">
+            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+            <h4 class="font-weight-normal mb-4"><%= testimonial.text %></h4>
+            <img class="img-fluid mx-auto mb-3" src="<%= testimonial.img %>" alt="Testimonial from <%= testimonial.name %>" />
+            <h5 class="m-0"><%= testimonial.name %></h5>
+            <span><%= testimonial.profession %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

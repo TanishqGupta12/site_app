@@ -1,6 +1,30 @@
-    <% if @event %>
-        <%= render partial: "caraousel" %>
-    <%= render partial: "category", locals: { categories_data: @categories_data } %>
+    <% if @event.try(:hide_gallery) == true %>
+    
     <% else %>
+        <%= render partial: "caraousel" %>
+    <% end %> 
 
-    <% end %>
+    <% if @event.try(:hide_blog) == true %>
+    <% else %>
+        <%= render partial: "about", locals: { event: @event } %>
+    <% end %> 
+
+    <% if @event.try(:hide_courses) == true%>
+    <% else %>
+      <%= render partial: "courses", locals: { courses_data: @courses } %>
+    <% end %> 
+
+    <% if @event.try(:hide_teacher_page) == true %>
+    <% else %>
+        <%= render partial: "teacher", locals: { teacher_data: @teacher_data } %>
+    <% end %> 
+
+    <% if @event.try(:hide_info) == true %>
+    <% else %>
+     <%= render partial: "testimonial", locals: { event: @event } %>
+    <% end %> 
+        
+    <% if @event.try(:hide_category) == true %>
+    <% else %>
+        <%= render partial: "category", locals: { categories_data: @categories_data } %>
+    <% end %> 
