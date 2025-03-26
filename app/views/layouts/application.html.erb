@@ -30,10 +30,10 @@
   </head>
 
   <body>
-    <%= render partial: "navbar" %>
+    <%= render partial: "navbar", locals: { event: @event } %>
 
     <%= yield %>
-    <%= render partial: "footer" %>
+    <%= render partial: "footer", locals: { event: @event } %>
 
     <%= javascript_include_tag "application" %>  <!-- Automatically included by Importmaps -->
     <%= javascript_include_tag "custom" %> 
