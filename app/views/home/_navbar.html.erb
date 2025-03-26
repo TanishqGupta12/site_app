@@ -1,3 +1,96 @@
+ <style>
+        .link-hover {
+            color: #44425a;
+            text-decoration: none; /* Optional: removes underline */
+        }
+        
+        .link-hover:hover {
+            color: #ff6347; /* Change to your desired hover color */
+            text-decoration: underline; /* Optional: adds underline on hover */
+        }
+
+    .dropdown {
+        display: none;
+    }
+
+    .nav-link:hover .dropdown {
+        z-index: 10;
+        display: block;
+        background: #ffffff;
+        position: absolute;
+        width: 40%;
+        margin-left: -10%;
+        /* margin-left: 1cm; */
+        margin-top: 0.2cm;
+
+        /* border-left: #f60 solid 2px;
+        border-left: #44425a solid 2px; 
+        border-right: #44425a solid 2px; */
+    }
+
+    .dropdown ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .dropdown ul li {
+        display: block;
+        margin: 0.5%;
+        padding-left: 0.5%;
+        padding-right: 0.5%;
+        border-bottom: #44425a 1px solid;
+    }
+
+    .dropdown ul li a {
+        display: block;
+        color: #44425a;
+        margin: 0;
+        padding: 8px 12px; 
+        font-size: 15px;
+        line-height: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+    }
+
+    .dropdown ul li:hover a {
+        display: block;
+        color: rgb(236, 232, 229);
+        background-color:#f60;
+        margin: 0;
+        padding: 0;
+    }
+    .dropdown2 {
+        display: none;
+    }
+
+    .dropdown ul li:hover .dropdown2{
+        position: absolute;
+        margin-left: 5cm;
+        margin-top: -.7cm;
+        display: block;
+        width: 50%;
+
+    }
+    .dropdown ul li:hover .nav-item .dropdown2 ul li a{
+        margin: 0;
+        display: block;
+        padding: 2%;
+        margin-left: -.2cm;
+        background-color:rgb(246, 243, 242);
+        color: #44425a;
+
+    }
+    .dropdown ul li:hover .nav-item .dropdown2 ul li:hover a{
+        color: rgb(246, 243, 242);
+        background-color:#f60;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+    
+    }
+    </style>
     <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center py-4 px-xl-5">
             <div class="col-lg-3">
@@ -56,6 +149,31 @@
                             <a href="index.html" class="nav-item nav-link">Home</a>
                             <a href="course.html" class="nav-item nav-link">Courses</a>
                             <a href="teacher.html" class="nav-item nav-link">Teachers</a>
+                            <div class="nav-item nav-link">
+                                <%= link_to "Category", "/academy/teacher", aria: { label: "View Teachers" }, class: "link-hover" %>
+                                <div class="dropdown">
+                                    <ul>
+                                        <% event.try(:categories).present? &&  event.try(:categories).each do |category| %>
+                                        <li class="row">
+                                            <div class="nav-item">
+                                            <%= link_to category.content, "#", aria: { label: "Category Link" } %>
+
+                                            <div class="dropdown2">
+                                                <ul>
+                                                    <% category.try(:sub_captions).present? &&  category.try(:sub_captions).each do |caption| %>
+                                                    <li>
+                                                        <%= link_to caption.title, "#", data: { category_captions_id: caption.id } %>
+                                                    </li>
+                                                    <% end %>
+                                                </ul>
+                                            </div>
+                                            </div>
+                                        </li>
+                                        <% end %>
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="/users/sign_in">login</a>
                     </div>
