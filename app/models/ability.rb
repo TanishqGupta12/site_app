@@ -4,6 +4,33 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+    cannot :import, :all
+    can :import, [User]
+
+    can :dashboard, :all
+    can :access, :rails_admin
+    can :history, :all
+    can :access, :rails_admin 
+    can :read, :dashboard
+
+
+    if user && user.superadmin?
+
+      can :manage, :all
+      can :import, :all
+
+      can :manage, Role
+
+    elsif user.admin?
+      can :manage, :all
+      
+      can :import, :all
+      cannot :manage, Role
+    # elsif user.teacher?
+
+    end
+
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

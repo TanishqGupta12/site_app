@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '50cb1f41cbdbb7610d0b88e6832dcf4eaa7a591a6451de412193cbe77cabcd7728811d9baba2740b8d0265bd536398b43ca3f8e4d6673a8528709ed835d506ed'
+  config.secret_key = '50cb1f41cbdbb7610d0b88e6832dcf4eaa7a591a6451de412193cbe77cabcd7728811d9baba2740b8d0265bd536398b43ca3f8e4d6673a8528709ed835d506ed'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -188,7 +188,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  # config.timeout_in = 30.minutes
+  config.timeout_in = 24.minutes
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -266,7 +266,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
