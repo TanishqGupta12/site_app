@@ -28,7 +28,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
-
+    <style>
+      <%= @event.try(:custom_css).try(:html_safe) %>
+    </style>
   <body>
     <%= render partial: "navbar", locals: { event: @event } %>
 
@@ -41,6 +43,10 @@
         <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="text/javascript">
+			<%= @event.try(:custom_js).try(:html_safe) %>
+		</script>
 
   </body>
 </html>
