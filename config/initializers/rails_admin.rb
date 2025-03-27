@@ -23,6 +23,25 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+  # 
+  #
+  config.model 'FormSection' do
+    visible false
+  end
+  config.model 'Event' do
+
+    edit do 
+      include_all_fields
+      field :gallery ,:active_storage do
+        # pretty_value do
+        #   bindings[:object].gallery.map do |img|
+        #     "<img src='#{Rails.application.routes.url_helpers.url_for(img)}' style='max-width: 100px; max-height: 100px;'>".html_safe
+        #   end.join(' ').html_safe
+        # end
+
+      end
+    end
+  end
 
   config.actions do
     dashboard                     # mandatory

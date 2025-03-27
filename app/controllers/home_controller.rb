@@ -14,4 +14,19 @@ class HomeController < ApplicationController
   def sign_up
     
   end
+  def about
+    
+  end
+
+  def contact
+    
+  end
+
+  def course
+    
+  end
+
+  def teacher
+    
+  end
 end
