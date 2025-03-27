@@ -89,11 +89,23 @@
 <div class="login-page">
   <div class="form">
     <h1>Login</h1>
-    <%= form_with url: new_user_session_path, method: :post, class: "login-form" do |f| %>
+
+    <% resource = User.new  %>
+    <% resource_name = :user %>
+    <% devise_mapping = Devise.mappings[:user] %>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name) , html: { class: "login-form" }) do |f| %>
       <%= f.email_field :email, placeholder: "Email", required: true %>
       <%= f.password_field :password, placeholder: "Password", required: true %>
       <%= hidden_field_tag :current_event_id, @event.id if @event.present? %>
       <%= f.submit "Login", class: "btn btn-primary" %>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
     <% end %>
 
     <p class="message">
