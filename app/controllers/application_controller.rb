@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
   def load_events
     @event = Event.all.first
   end
+
+
+  def after_sign_in_path_for(resource)
+    if resource.superadmin? || resource.admin? || resource.teacher?
+      rails_admin_path # Uses RailsAdmin dashboard path
+    else
+      root_path # Uses the application's root path
+    end
+  end
+
 end
