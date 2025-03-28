@@ -2,6 +2,8 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <%= render "layouts/rails_admin/head" %>
+    <%= tinymce_assets data: { turbo_track: "reload" } %>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
   </head>
   <body class="rails_admin">
     <div data-i18n-options="<%= I18n.t("admin.js").to_json %>" id="admin-js"></div>
@@ -23,5 +25,28 @@
         </div>
       </div>
     </div>
+        <script type="text/javascript">
+          //tinymce.init({
+         //secslector: ".tinymce",
+        // relative_urls : false,
+    //     remove_script_host : false,
+    //     images_upload_url: '/tinymce_assets',
+    //     plugins: 'lists link image table code help wordcount',
+    //     toolbar: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
+    // });
+
+    tinymce.init({
+      selector: '.tinymce', // Match elements with this class
+      images_upload_url: '/tinymce_assets',
+      plugins: 'lists link image table code help wordcount',
+      toolbar: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
+      menubar: true,
+      height: 300,
+      relative_urls : false,
+      remove_script_host : false,
+    });
+
+    
+    </script>
   </body>
 </html>
